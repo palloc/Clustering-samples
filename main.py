@@ -38,3 +38,5 @@ if __name__ == '__main__':
     print L
     print la
     print V
+
+    print V[0]
