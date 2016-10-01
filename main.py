@@ -42,5 +42,6 @@ if __name__ == '__main__':
     kmeans_model = KMeans(n_clusters=cluster_num, random_state=10).fit(V)
     labels = kmeans_model.labels_
     for label, feature in zip(labels, V):
-        print(label, feature, feature.sum())
+        if label == 1:
+            print(label, feature)
 
