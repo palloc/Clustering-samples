@@ -25,10 +25,10 @@ def Calcurate_D(W):
 
     
 if __name__ == '__main__':
-    data = np.loadtxt('data_set/test.csv', delimiter=',')
+    data = np.loadtxt('data_set/normalize.csv', delimiter=',')
     W = Calcurate_W(data)
     D = Calcurate_D(W)
-
+    cluster_num = 4
     L = D - W
 
     la, V = np.linalg.eig(L)
@@ -38,5 +38,9 @@ if __name__ == '__main__':
     print L
     print la
     print V
+    V = V[:, :cluster_num]
+    kmeans_model = KMeans(n_clusters=cluster_num, random_state=10).fit(V)
+    labels = kmeans_model.labels_
+    for label, feature in zip(labels, V):
+        print(label, feature, feature.sum())
 
-    print V[0]
