@@ -33,15 +33,10 @@ if __name__ == '__main__':
 
     la, V = np.linalg.eig(L)
 
-    print W
-    print D
-    print L
-    print la
-    print V
     V = V[:, :cluster_num]
     kmeans_model = KMeans(n_clusters=cluster_num, random_state=10).fit(V)
     labels = kmeans_model.labels_
     for label, feature in zip(labels, V):
         if label == 1:
-            print(label, feature)
+            print(label, feature, feature.sum())
 
