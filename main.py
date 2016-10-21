@@ -25,7 +25,7 @@ def Calcurate_D(W):
 
     
 if __name__ == '__main__':
-    data = np.loadtxt('data_set/normalize.csv', delimiter=',')
+    data = np.loadtxt('data_set/10_percent_kddcup.data', delimiter=',')
     W = Calcurate_W(data)
     D = Calcurate_D(W)
     cluster_num = 4

@@ -8,7 +8,7 @@ with open("data_set/kddcup.data_10_percent", "rb") as r_file:
         for i in temp:
             split_data = i.split(",")
             del split_data[1:4]
-            data.append(split_data)
+            data.append(split_data[:-1])
         writer.writerows(data)
 
         
