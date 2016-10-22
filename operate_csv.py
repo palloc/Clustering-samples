@@ -32,9 +32,7 @@ with open("data_set/kddcup.data_10_percent", "rb") as r_file:
             data.append(split_data[:-1])
         data.pop()
         data.pop()
-        data = Normalize(data)
+#        data = Normalize(data)
         writer.writerows(data)
 
         
-            
-    
