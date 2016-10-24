@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 
 if __name__ == '__main__':
     file = open('data_set/10_percent_kddcup.data')
+    # answer label
     c_label = open('data_set/train_label.data')
     t_label = c_label.read().split('\n')
     t_data = file.read().split('\r\n')
@@ -13,9 +14,7 @@ if __name__ == '__main__':
 
     for i in t_data:
         temp_data.append(i.split(','))
-    temp_data.pop()
-    temp_data.pop()
-
+    del temp_data[-2:]
     for i in temp_data:
         data.append(map(float, i))
 
@@ -40,6 +39,7 @@ if __name__ == '__main__':
             else:
                 f_to_a += 1.0
 
+    # evaluate
     accuracy = correct / len(labels) * 100
     f_positive = a_to_f / len(labels) * 100
     f_negative = f_to_a/ len(labels) * 100
